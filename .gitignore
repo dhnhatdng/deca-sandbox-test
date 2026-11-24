@@ -1,0 +1,15 @@
+# Secrets & local run state — NEVER commit these
+wallet.json
+api-key.txt
+api-key-old.txt
+test-result.json
+test-result-final.json
+.env
+.env.*
+
+# Dependencies
+node_modules/
+
+# OS / editor
+.DS_Store
+Thumbs.db

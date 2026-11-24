@@ -1,0 +1,1 @@
+{"bin":{"deca-sandbox-test":"./deca-sandbox-test.mjs"},"dependencies":{"@x402/core":"^2.32.0","@x402/evm":"^2.32.0","viem":"^2.58.4"},"description":"Run one DECA API sandbox test in a single command (+30 points mission)","engines":{"node":">=18"},"license":"MIT","name":"deca-sandbox-test","scripts":{"test":"node deca-sandbox-test.mjs --dry-run"},"type":"module","version":"1.0.0"}
