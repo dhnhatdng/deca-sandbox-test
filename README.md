@@ -7,6 +7,8 @@ Nhiệm vụ: **Try a test in the API sandbox — +30 điểm DECA** (tự cộn
 
 Script `deca-sandbox-test.mjs` chạy trọn vẹn 1 test sandbox trong 1 lệnh: xin báo giá → tạo test → trả 1 test USDC → đợi kết quả ~7 phút.
 
+Có thêm bản tương tác `deca-sandbox-interactive.mjs`: không cần gõ cờ lệnh, chỉ chạy `node deca-sandbox-interactive.mjs` rồi trả lời từng câu hỏi (API key, ví test, tên ý tưởng, mô tả ngắn). Xem mục "Bản tương tác" bên dưới.
+
 > Unofficial community tool. Not affiliated with DECA Labs. Always verify the payment address before signing anything.
 
 ## Chuẩn bị
@@ -67,6 +69,22 @@ Lần chạy đầu tiên, script sẽ **tự tạo 1 ví test mới** rồi d�
 
 Các cờ tùy chọn: `--markets US,GB` (mặc định US,GB), `--option signal` (mặc định theo gợi ý của DECA).
 
+## Bản tương tác (không cần gõ cờ lệnh)
+
+Nếu bạn không muốn gõ cờ lệnh, dùng `deca-sandbox-interactive.mjs` thay cho `deca-sandbox-test.mjs`. Cài đặt giống Bước 2, rồi chỉ chạy:
+
+```
+node deca-sandbox-interactive.mjs
+```
+
+Script sẽ hỏi lần lượt, gõ xong nhấn Enter:
+
+1. **API key** — gõ ẩn, mỗi ký tự hiện 1 dấu `*`. Nhập xong, script in dòng đối chiếu dạng 4 ký tự đầu + `*****` + 4 ký tự cuối và độ dài, ví dụ `deca*****aqBW (48 ky tu)`, để bạn kiểm tra đã paste đúng chưa. Key chỉ dùng cho lần chạy này, không lưu vào file.
+2. **Ví test** — nhấn Enter để dùng ví trong `wallet.json` (nếu có), gõ `moi` để tạo ví mới, hoặc nhập private key ví của bạn (cũng gõ ẩn + có dòng đối chiếu). Ví nhập tay chỉ dùng cho lần chạy này, không lưu.
+3. **Tên ý tưởng, mô tả ngắn**, rồi thị trường (Enter = US,GB) và option (Enter = theo gợi ý của DECA).
+
+Các bước còn lại giống hệt bản 1 lệnh: xin báo giá → tạo test → trả 1 test USDC → đợi kết quả ~7 phút. Khi thanh toán xong, script báo `Ket noi API thanh cong - test sandbox da duoc tao.` rồi mới in TEST ID.
+
 ## Bước 5 — Đọc kết quả
 
 Script tự làm tiếp, bạn chỉ cần đợi khoảng 7 phút:
@@ -118,3 +136,5 @@ node deca-sandbox-test.mjs --key <YOUR_API_KEY> --idea "Name" --pitch "One or tw
 ```
 
 The script requests a quote, creates a sandbox test, pays exactly 1 test USDC on Base Sepolia via x402, waits ~7 minutes and prints the PASS/MISS result. Points are credited automatically when the test is created. Create your API key with **Read + Quote + Test** scopes (scopes cannot be changed afterwards). On first run it generates a fresh test wallet — fund it with free test USDC at https://faucet.circle.com (Base Sepolia) and re-run. It always runs in sandbox mode and never touches real money. It verifies the payment goes to DECA's wallet (`decalabs.base.eth`) before signing.
+
+An interactive version, `deca-sandbox-interactive.mjs`, asks for the API key, wallet, idea name and pitch instead of flags. Typed keys are masked with `*` and shown back as first 4 + `*****` + last 4 characters for verification. It prints a connection success message after the payment goes through.
