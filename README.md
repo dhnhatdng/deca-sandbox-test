@@ -5,7 +5,6 @@
 
 Nhiệm vụ: **Try a test in the API sandbox — +30 điểm DECA** (tự cộng khi test được tạo, không cần nộp link).
 
-Script `deca-sandbox-test.mjs` chạy trọn vẹn 1 test sandbox trong 1 lệnh: xin báo giá → tạo test → trả 1 test USDC → đợi kết quả ~7 phút.
 
 Có thêm bản tương tác `deca-sandbox-interactive.mjs`: không cần gõ cờ lệnh, chỉ chạy `node deca-sandbox-interactive.mjs` rồi trả lời từng câu hỏi (API key, ví test, tên ý tưởng, mô tả ngắn). Xem mục "Bản tương tác" bên dưới.
 
