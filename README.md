@@ -49,7 +49,7 @@ Script hỏi lần lượt, gõ xong nhấn Enter:
 
 1. **API key** — gõ ẩn, mỗi ký tự hiện 1 dấu `*`. Nhập xong, script in dòng đối chiếu dạng 4 ký tự đầu + `*****` + 4 ký tự cuối và độ dài, ví dụ `deca*****aqBW (48 ky tu)`, để bạn kiểm tra đã paste đúng chưa. Key chỉ dùng cho lần chạy này, không lưu vào file.
 2. **Ví test** — nhấn Enter để dùng ví trong `wallet.json` (nếu có). Lần chạy đầu tiên chưa có ví: nhấn Enter (hoặc gõ `moi`), script tự tạo 1 ví test mới, lưu vào `wallet.json`, rồi dừng lại để bạn đi lấy test USDC (xem dưới). Cũng có thể nhập private key ví của bạn (cũng gõ ẩn + có dòng đối chiếu) — ví nhập tay chỉ dùng cho lần chạy này, không lưu.
-3. **Tên ý tưởng, mô tả ngắn**, rồi thị trường (Enter = US,GB) và option (Enter = theo gợi ý của DECA).
+3. **Tên ý tưởng, mô tả ngắn**, rồi thị trường (Enter = US,GB) và option (Enter = theo gợi ý của DECA). Mô tả phải đủ dài — ít nhất 1 câu đầy đủ nói rõ app dành cho ai và làm gì cho họ (tối thiểu 40 ký tự, 8 từ). Nếu gõ quá ngắn, script báo ngay và hỏi lại, không gọi API.
 
 Lần chạy đầu tiên, khi script dừng lại sau khi tạo ví:
 

@@ -245,9 +245,20 @@ async function main() {
     if (!ideaName) console.log("  Ten y tuong khong duoc de trong.");
   }
   let pitch = "";
-  while (!pitch) {
-    pitch = await promptVisible("Mo ta ngan (pitch): ");
-    if (!pitch) console.log("  Mo ta khong duoc de trong.");
+  while (true) {
+    pitch = (await promptVisible("Mo ta ngan (pitch): ")).trim();
+    if (!pitch) {
+      console.log("  Mo ta khong duoc de trong.");
+      continue;
+    }
+    const words = pitch.split(/\s+/).filter(Boolean);
+    if (pitch.length < 40 || words.length < 8) {
+      console.log("  Mo ta qua ngan - DECA yeu cau it nhat 1 cau day du: app danh cho ai va lam gi cho ho.");
+      console.log("  Vi du: \"A simple app for small businesses to send invoices, collect payments online, and track paid and overdue bills in one place.\"");
+      console.log("  Nhap lai mo ta day du hon (it nhat 40 ky tu, 8 tu).");
+      continue;
+    }
+    break;
   }
   const markets = (await promptVisible("Thi truong (Enter = US,GB): ", "US,GB")).split(",").map((s) => s.trim().toUpperCase()).filter(Boolean);
   const option = (await promptVisible("Option (Enter = theo goi y cua DECA): ", "")).toLowerCase();
